@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col s12 m12">
+  	<br><br>
+    <table id="tableRes" class="table highlight">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+		      	<th>Tarjeta</th>
+		      	<th>Tipo (Tarjeta)</th>
+		      	<th>Factura</th>
+		      	<th>Valor</th>
+		    </tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in lista.lists">
+				<td>{{ row.name }}</td>
+		      	<td>{{ row.card }}</td>
+		      	<td>{{ row.brand }}</td>
+		      	<td>
+		      		<p class="in-flex" ng-if="row.billing_number == null">0</p>
+		      		<p class="in-flex" ng-if="row.billing_number != null">{{ row.billing_number }}</p>
+		      	</td>
+		      	<td>{{ row.value }}</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+</div>
+<script>
+	var headertext = [],
+	headers = document.querySelectorAll("#tableRes th"),
+	tablerows = document.querySelectorAll("#tableRes th"),
+	tablebody = document.querySelector("#tableRes tbody");
+
+	for(var i = 0; i < headers.length; i++) {
+	  var current = headers[i];
+	  headertext.push(current.textContent.replace(/\r?\n|\r/,""));
+	} 
+	for (var i = 0, row; row = tablebody.rows[i]; i++) {
+	  for (var j = 0, col; col = row.cells[j]; j++) {
+	    col.setAttribute("data-th", headertext[j]);
+	  } 
+	}
+</script>

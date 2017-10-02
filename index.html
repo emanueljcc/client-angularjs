@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+	<title>Test NeoTech</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="public/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="public/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="public/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection">
+</head>
+<body ng-app="TestNeotech">
+	<nav class="grey lighten-1" role="navigation">
+	  <div class="nav-wrapper container"><a class="brand-logo" id="logo-container" href="#/">Test</a>
+	    <ul class="right hide-on-med-and-down">
+	      <li><a href="#/">Inicio</a></li>
+	      <li><a href="#/lista">Lista</a></li>
+	      <li><a href="#/forma">Forma</a></li>
+	      <li><a href="#/video">Video</a></li>
+	      <li><a href="#/gps">GPS</a></li>
+	    </ul>
+	    <ul class="side-nav" id="nav-mobile">
+	      <li><a href="#/">Inicio</a></li>
+	      <li><a href="#/lista">Lista</a></li>
+	      <li><a href="#/forma">Forma</a></li>
+	      <li><a href="#/video">Video</a></li>
+	      <li><a href="#/gps">GPS</a></li>
+	    </ul><a class="button-collapse" href="#" data-activates="nav-mobile"><i class="material-icons">menu</i></a>
+	  </div>
+	</nav>
+
+	<br>
+	<div class="container">
+		<div ui-view></div>	
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+	<script src="public/js/app.js"></script>
+	<script src="public/js/controllers/home.js"></script>
+	<script src="public/js/services/home.js"></script>
+	<script src="public/js/materialize.min.js"></script>
+    <script src="public/js/init.js"></script>
+    <script src="public/js/script.js"></script>
+</body>
+</html>

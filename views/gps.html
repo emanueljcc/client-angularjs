@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="center col s12 m12">
+		<article class='google-map'>
+			<span id="map"></span>
+		</article>
+	</div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnBdZwp0Z-7lx7whHBerLJHgfT6BLCrJo&callback=initMap" type="text/javascript"></script>
+
+<script>
+function success(position) {
+  var ss = document.querySelector('#map');
+
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  mapcanvas.style.height = '400px';
+  mapcanvas.style.width = '560px';
+
+  document.querySelector('article').appendChild(mapcanvas);
+
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myOptions = {
+    zoom: 12,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+  var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title: `Estas en un radio de ${position.coords.accuracy}`
+  });
+}
+
+function error(msg) {
+  var ss = document.querySelector('#map');
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  error('Navegador no soportado');
+}
+
+</script>

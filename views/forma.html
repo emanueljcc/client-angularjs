@@ -1,0 +1,59 @@
+<div class="row">
+	<form ng-submit="save()" class="col s12 m12">
+		
+		<h4 class="header">{{tittle}}</h4>
+	    
+	    <div class="input-field col s12">
+		    <input id="name" ng-model="list.name" type="text" class="validate" >
+		    <label class="active" for="name">Nombre</label>
+	    </div>
+	    <div class="input-field col s12">
+		    <input id="card" ng-model="list.card" type="text" class="validate" >
+		    <label class="active" for="card">Tarjeta</label>
+	    </div>
+
+		<div class="input-field col s12">
+			<select id="brand" ng-model="list.brand" class="validate">
+				<option value="" disabled selected>Seleccione</option>
+				<option value="Visa">Visa</option>
+				<option value="MasterCard">Master Card</option>
+				<option value="Amex">Amex</option>
+				<option value="DinerClub">Diner Club</option>
+			</select>
+			<label style="font-size: 10pt;">Tipo</label>
+		</div>
+
+	    <div class="input-field col s12">
+		    <input id="date" ng-model="list.date" type="text" class="datepicker validate" required>
+		    <label class="active" for="date">Date</label>
+	    </div>
+
+	    <div class="input-field col s12">
+		    <input id="billing_number" ng-model="list.billing_number" type="text" class="validate" >
+		    <label class="active" for="billing_number">Factura</label>
+	    </div>
+	    
+	    <div class="input-field col s12">
+		    <input id="value" ng-model="list.value" type="text" class="validate" >
+		    <label class="active" for="value">Valor</label>
+	    </div>
+		
+		<button type="submit" class="btn btn-success">{{button}}</button>
+	
+	</form>
+</div>
+<script>
+	$(document).ready(function() {
+	    Materialize.updateTextFields();
+	    $('select').material_select();
+	    $('.datepicker').pickadate({
+		    selectMonths: true,
+		    selectYears: 15,
+		    today: 'Hoy',
+		    clear: 'Limpiar',
+		    close: 'Ok',
+		    closeOnSelect: false,
+		    format: 'yyyy-mm-dd'
+		});    
+	});
+</script>
